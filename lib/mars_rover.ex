@@ -21,15 +21,32 @@ defmodule MarsRover do
        where_am_i new_structure = %MarsRover{ y: structure.y + 1, x: structure.x , direction: structure.direction}
       { "M", "S" } ->
        where_am_i new_structure = %MarsRover{ y: structure.y - 1, x: structure.x , direction: structure.direction}
-      # { "M", "W" } ->
-      #   structure.x = structure.x - 1
-      # { "M", "E" } ->
-      #   structure.x = structure.x + 1
+      { "M", "W" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x - 1, direction: structure.direction}
+      { "M", "E" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: structure.direction}
+      { "L", "N" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "W"}
+      { "L", "S" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "E"}
+      { "L", "W" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "S"}
+      { "L", "E" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "N"}
+      { "R", "N" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "E"}
+      { "R", "S" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "W"}
+      { "R", "W" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "N"}
+      { "R", "E" } ->
+       where_am_i new_structure = %MarsRover{ y: structure.y, x: structure.x + 1, direction: "S"}
       _ ->
         "wrong path"
       end
     step(tail, new_structure)
   end
+
 
   def step([], structure) do
     IO.puts "rover is stop"
