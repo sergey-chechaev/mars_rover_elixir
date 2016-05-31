@@ -49,7 +49,7 @@ defmodule MarsRover do
 
 
   def step([], structure) do
-    IO.puts "rover is stop"
+    IO.puts "The rover stoped"
   end
 
 
