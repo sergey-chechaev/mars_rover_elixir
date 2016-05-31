@@ -16,7 +16,7 @@
   1 1 N
   1 2 N
   1 3 N
-  rover is stop
+  The rover stoped
   :ok
 ```
 
